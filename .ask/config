@@ -1,9 +1,75 @@
 {
   "deploy_settings": {
     "default": {
-      "skill_id": "",
+      "skill_id": "amzn1.ask.skill.4e5cbf70-c3d8-4d4a-9185-9f0d40649ef6",
       "was_cloned": false,
-      "merge": {}
+      "merge": {},
+      "resources": {
+        "manifest": {
+          "eTag": "0cc222e8b7c029d97334245b4eeb5816"
+        },
+        "interactionModel": {
+          "de-DE": {
+            "eTag": "e863ee326d503a6cc2ea5e7f39558d5e"
+          },
+          "en-AU": {
+            "eTag": "c6373508ac03b6c6b187c785d4239abc"
+          },
+          "en-IN": {
+            "eTag": "78873b44ca9eb41b63173fb751e6117a"
+          },
+          "en-CA": {
+            "eTag": "6443781cb2f4862203a1be252f557c8a"
+          },
+          "en-US": {
+            "eTag": "34f00fda4a7e6b266e9bfb47dcf2512a"
+          },
+          "es-MX": {
+            "eTag": "6730ff9aaed7ec0b99c5e2140ec2f6c4"
+          },
+          "en-GB": {
+            "eTag": "5748861334cfd52315d6d052e85dd43e"
+          },
+          "es-US": {
+            "eTag": "623c325b40b3587390b755d33ff1eb0a"
+          },
+          "hi-IN": {
+            "eTag": "40a0cbe392587dc832ccfb90eae0d711"
+          },
+          "es-ES": {
+            "eTag": "9ed654dc8c61d70b916648b4c67d4dd4"
+          },
+          "fr-FR": {
+            "eTag": "250d80d3edd79792be7b2fb4e47db153"
+          },
+          "ja-JP": {
+            "eTag": "5068a20992b7da0f73a3a0994d9f3257"
+          },
+          "fr-CA": {
+            "eTag": "54a56f8cdd8051bb774ae6677123349d"
+          },
+          "pt-BR": {
+            "eTag": "2be4bec0f4e49ab2a89a7d176d29d695"
+          },
+          "it-IT": {
+            "eTag": "03e54d4d22e59531677e850f96cbafe3"
+          }
+        },
+        "lambda": [
+          {
+            "alexaUsage": [
+              "custom/default"
+            ],
+            "arn": "arn:aws:lambda:us-east-1:314405667869:function:ask-custom-alexa-hello-ts-default",
+            "awsRegion": "us-east-1",
+            "codeUri": "lambda/custom",
+            "functionName": "ask-custom-alexa-hello-ts-default",
+            "handler": "index.handler",
+            "revisionId": "c4ba38d0-2fdd-4568-9ee5-9eea60f1d051",
+            "runtime": "nodejs10.x"
+          }
+        ]
+      }
     }
   }
 }
