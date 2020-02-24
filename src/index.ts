@@ -7,11 +7,11 @@ import * as Alexa from 'ask-sdk-core'
 // i18n library dependency, we use it below in a localisation interceptor
 import i18n from 'i18next'
 // i18n strings for all supported locales
-import languageStrings = require('./languageStrings')
+import {languageStrings} from './languageStrings'
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest'
     },
     handle(handlerInput) {
         const speakOutput = handlerInput.t('WELCOME_MSG');
@@ -30,8 +30,7 @@ const HelloWorldIntentHandler = {
     )
   },
     handle(handlerInput) {
-        const speakOutput = handlerInput.t('HELLO_MSG');
-
+        const speakOutput = handlerInput.t('HELLO_MSG')
     return handlerInput.responseBuilder
         .speak(speakOutput)
             // .reprompt('add a reprompt if you want to keep the session open for the user to respond')
@@ -166,8 +165,8 @@ const LocalisationRequestInterceptor = {
 exports.handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
         LaunchRequestHandler,
-    HelloWorldIntentHandler,
-    HelpIntentHandler,
+      HelloWorldIntentHandler,
+      HelpIntentHandler,
         CancelAndStopIntentHandler,
     FallbackIntentHandler,
         SessionEndedRequestHandler,
