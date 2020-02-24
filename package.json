@@ -1,0 +1,33 @@
+{
+  "name": "hellonode",
+  "version": "1.0.0",
+  "description": "Hello World Alexa Skill using ASK Nodejs SDK",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint --fix ./src/*",
+    "watch": "tsc -w"
+  },
+  "author": "ufoo68",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^13.7.0",
+    "ask-sdk-core": "2.0.*",
+    "ask-sdk-model": "1.4.*",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "i18next": "^19.3.1",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.19.0",
+    "@typescript-eslint/parser": "^2.19.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1"
+  }
+}
