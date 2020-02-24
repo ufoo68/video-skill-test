@@ -6,53 +6,53 @@
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "0cc222e8b7c029d97334245b4eeb5816"
+          "eTag": "196139820b721ba740185fc8f65bf149"
         },
         "interactionModel": {
           "de-DE": {
-            "eTag": "e863ee326d503a6cc2ea5e7f39558d5e"
+            "eTag": "1f27993cf6f1401440fd4faef2eef7a3"
           },
           "en-AU": {
-            "eTag": "c6373508ac03b6c6b187c785d4239abc"
+            "eTag": "bfaefe491781751de93fc6f8f5363651"
           },
           "en-IN": {
-            "eTag": "78873b44ca9eb41b63173fb751e6117a"
+            "eTag": "e6244f293b120dbf2778acba907d05cc"
           },
           "en-CA": {
-            "eTag": "6443781cb2f4862203a1be252f557c8a"
+            "eTag": "25659a674fc3ceb33c158df038b0a3e8"
           },
           "en-US": {
-            "eTag": "34f00fda4a7e6b266e9bfb47dcf2512a"
+            "eTag": "831c8c8efb7d7d95f784e210c14bb991"
           },
           "es-MX": {
-            "eTag": "6730ff9aaed7ec0b99c5e2140ec2f6c4"
+            "eTag": "e0ca629babc82a3c2ab2f01c93f4b339"
           },
           "en-GB": {
-            "eTag": "5748861334cfd52315d6d052e85dd43e"
+            "eTag": "76dd6b99b87cc8210a1321fa9f1d7f58"
           },
           "es-US": {
-            "eTag": "623c325b40b3587390b755d33ff1eb0a"
+            "eTag": "a4fc2cae19d6b2878afeb4919594f44d"
           },
           "hi-IN": {
-            "eTag": "40a0cbe392587dc832ccfb90eae0d711"
+            "eTag": "8087381475616628f728d79142281a5a"
           },
           "es-ES": {
-            "eTag": "9ed654dc8c61d70b916648b4c67d4dd4"
+            "eTag": "bfbac4a2899443a4c1025f2aae4d2ae0"
           },
           "fr-FR": {
-            "eTag": "250d80d3edd79792be7b2fb4e47db153"
+            "eTag": "356507dc39eb25630f74a7e8ad175242"
           },
           "ja-JP": {
-            "eTag": "5068a20992b7da0f73a3a0994d9f3257"
+            "eTag": "2090d7b9ff0a556435709b95c4cae48b"
           },
           "fr-CA": {
-            "eTag": "54a56f8cdd8051bb774ae6677123349d"
+            "eTag": "4840f7a66fe012be2c95608afab643f8"
           },
           "pt-BR": {
-            "eTag": "2be4bec0f4e49ab2a89a7d176d29d695"
+            "eTag": "90e69a34408112a2424457f6d4f8808e"
           },
           "it-IT": {
-            "eTag": "03e54d4d22e59531677e850f96cbafe3"
+            "eTag": "82238a2a2137fe010d2825c46687ae17"
           }
         },
         "lambda": [
@@ -65,7 +65,7 @@
             "codeUri": "lambda/custom",
             "functionName": "ask-custom-alexa-hello-ts-default",
             "handler": "index.handler",
-            "revisionId": "c4ba38d0-2fdd-4568-9ee5-9eea60f1d051",
+            "revisionId": "233e808f-ec56-4baa-be26-a4c8218f8bc3",
             "runtime": "nodejs10.x"
           }
         ]

@@ -13,7 +13,11 @@ interface TranslationMessage {
 const languageStrings = (handler: Alexa.HandlerInput, intentName?: string): TranslationMessage => {
   const { locale } = handler.requestEnvelope.request
   switch (locale) {
-    case 'en':
+    case 'en-US':
+    case 'en-AU':
+    case 'en-GB':
+    case 'en-IN':
+    case 'en-CA':
       return {
         WELCOME_MSG: 'Welcome, you can say Hello or Help. Which would you like to try?',
         HELLO_MSG: 'Hello World!',
@@ -23,7 +27,9 @@ const languageStrings = (handler: Alexa.HandlerInput, intentName?: string): Tran
         FALLBACK_MSG: "Sorry, I don't know about that. Please try again.",
         ERROR_MSG: 'Sorry, I had trouble doing what you asked. Please try again.',
       }
-    case 'es':
+    case 'es-ES':
+    case 'es-MX':
+    case 'es-US':
       return {
         WELCOME_MSG: 'Bienvenido, puedes decir Hola o Ayuda. Cual prefieres?',
         HELLO_MSG: 'Hola Mundo!',
@@ -33,7 +39,7 @@ const languageStrings = (handler: Alexa.HandlerInput, intentName?: string): Tran
         FALLBACK_MSG: 'Lo siento, no se nada sobre eso. Por favor inténtalo otra vez.',
         ERROR_MSG: 'Lo siento, ha habido un error. Por favor inténtalo otra vez.',
       }
-    case 'de':
+    case 'de-DE':
       return {
         WELCOME_MSG: 'Wilkommen, du kannst Hallo oder Hilfe sagen. Was würdest du gern tun?',
         HELLO_MSG: 'Hallo!',
@@ -43,7 +49,7 @@ const languageStrings = (handler: Alexa.HandlerInput, intentName?: string): Tran
         FALLBACK_MSG: 'Es tut mir leid, ich weiss das nicht. Bitte versuche es erneut.',
         ERROR_MSG: 'Es tut mir leid, ich konnte das nicht machen. Bitte versuche es erneut.',
       }
-    case 'ja':
+    case 'ja-JP':
       return {
         WELCOME_MSG: 'ようこそ。こんにちは、または、ヘルプ、と言ってみてください。どうぞ！',
         HELLO_MSG: 'ハローワールド',
@@ -53,7 +59,8 @@ const languageStrings = (handler: Alexa.HandlerInput, intentName?: string): Tran
         FALLBACK_MSG: 'ごめんなさい。ちょっとよくわかりませんでした。もう一度言ってみてください。',
         ERROR_MSG: 'ごめんなさい。なんだかうまく行かないようです。もう一度言ってみてください。',
       }
-    case 'fr':
+    case 'fr-CA':
+    case 'fr-FR':
       return {
         WELCOME_MSG: 'Bienvenue sur le génie des salutations, dites-moi bonjour et je vous répondrai',
         HELLO_MSG: 'Bonjour à tous!',
@@ -63,7 +70,7 @@ const languageStrings = (handler: Alexa.HandlerInput, intentName?: string): Tran
         FALLBACK_MSG: 'Désolé, je ne sais pas. Pouvez-vous reformuler?',
         ERROR_MSG: "Désolé, je n'ai pas compris. Pouvez-vous reformuler?",
       }
-    case 'it':
+    case 'it-IT':
       return {
         WELCOME_MSG: 'Buongiorno! Puoi salutarmi con un ciao, o chiedermi aiuto. Cosa preferisci fare?',
         HELLO_MSG: 'Ciao!',
@@ -73,7 +80,7 @@ const languageStrings = (handler: Alexa.HandlerInput, intentName?: string): Tran
         FALLBACK_MSG: 'Perdonami, penso di non aver capito bene. Riprova.',
         ERROR_MSG: "Scusa, c'è stato un errore. Riprova.",
       }
-    case 'pt':
+    case 'pt-BR':
       return {
         WELCOME_MSG: 'Bem vindo, você pode dizer Olá ou Ajuda. Qual você gostaria de fazer?',
         HELLO_MSG: 'Olá!',
@@ -83,7 +90,7 @@ const languageStrings = (handler: Alexa.HandlerInput, intentName?: string): Tran
         FALLBACK_MSG: 'Desculpe, não sei o que dizer. Por favor tente novamente.',
         ERROR_MSG: 'Desculpe, não consegui fazer o que você pediu. Por favor tente novamente.',
       }
-    case 'hi':
+    case 'hi-IN':
       return {
         WELCOME_MSG: 'नमस्ते, आप hello या help कह सकते हैं. आप क्या करना चाहेंगे?',
         HELLO_MSG: 'नमस्ते दुनिया ',
