@@ -14,11 +14,22 @@ parserOptions:
 plugins:
   - '@typescript-eslint'
   - 'eslint-plugin-prettier'
+settings:
+  import/resolver:
+    node:
+      extensions:
+        - .ts
 rules:
-  linebreak-style: ["error", "windows"]
+  linebreak-style: ['error', 'windows']
   no-console: 'off'
   semi: 'off'
   operator-linebreak: 'off'
+  max-len: ['off']
+  import/extensions: ['error', 'ignorePackages', {
+    'ts': 'never',
+  }]
+  arrow-parens: 'off'
+  '@typescript-eslint/member-delimiter-style': 'off'
   prettier/prettier:
     - error
     - printWidth: 130

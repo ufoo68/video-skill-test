@@ -4,106 +4,104 @@
  * session persistence, api calls, and more.
  * */
 import * as Alexa from 'ask-sdk-core'
-// i18n library dependency, we use it below in a localisation interceptor
-import i18n from 'i18next'
-// i18n strings for all supported locales
-import {languageStrings} from './languageStrings'
+import languageStrings from './languageStrings'
 
-const LaunchRequestHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest'
-    },
-    handle(handlerInput) {
-        const speakOutput = handlerInput.t('WELCOME_MSG');
-
-    return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .reprompt(speakOutput)
-            .getResponse();
-    },
-}
-
-const HelloWorldIntentHandler = {
+const LaunchRequestHandler: Alexa.RequestHandler = {
   canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent';
-    )
-  },
-    handle(handlerInput) {
-        const speakOutput = handlerInput.t('HELLO_MSG')
-    return handlerInput.responseBuilder
-        .speak(speakOutput)
-            // .reprompt('add a reprompt if you want to keep the session open for the user to respond')
-            .getResponse();
-    )
-  },
-}
-
-const HelpIntentHandler = {
-    canHandle(handlerInput) {
-    return (
-      Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
-      Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent'
-  },
-    handle(handlerInput) {
-        const speakOutput = handlerInput.t('HELP_MSG');
-
-    return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .reprompt(speakOutput)
-            .getResponse();
-    },
-}
-
-const CancelAndStopIntentHandler = {
-  canHandle(handlerInput) {
-    return (
-      Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
-      (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.CancelIntent' ||
-        Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent')
-  },
+    return handlerInput.requestEnvelope.request.type === 'LaunchRequest'
   },
   handle(handlerInput) {
-        const speakOutput = handlerInput.t('GOODBYE_MSG');
+    const speakOutput = languageStrings(handlerInput).WELCOME_MSG
+    return handlerInput.responseBuilder
+      .speak(speakOutput)
+      .reprompt(speakOutput)
+      .getResponse()
+  },
+}
+
+const HelloWorldIntentHandler: Alexa.RequestHandler = {
+  canHandle(handlerInput) {
+    return (
+      handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+      handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent'
+    )
+  },
+  handle(handlerInput) {
+    const speakOutput = languageStrings(handlerInput).HELLO_MSG
+    return (
+      handlerInput.responseBuilder
+        .speak(speakOutput)
+        // .reprompt('add a reprompt if you want to keep the session open for the user to respond')
+        .getResponse()
+    )
+  },
+}
+
+const HelpIntentHandler: Alexa.RequestHandler = {
+  canHandle(handlerInput) {
+    return (
+      handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+      handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent'
+    )
+  },
+  handle(handlerInput) {
+    const speakOutput = languageStrings(handlerInput).HELP_MSG
 
     return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .getResponse();
-    },
+      .speak(speakOutput)
+      .reprompt(speakOutput)
+      .getResponse()
+  },
+}
+
+const CancelAndStopIntentHandler: Alexa.RequestHandler = {
+  canHandle(handlerInput) {
+    return (
+      handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+      (handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent' ||
+        handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent')
+    )
+  },
+  handle(handlerInput) {
+    const speakOutput = languageStrings(handlerInput).GOODBYE_MSG
+
+    return handlerInput.responseBuilder.speak(speakOutput).getResponse()
+  },
 }
 /* *
  * FallbackIntent triggers when a customer says something that doesn’t map to any intents in your skill
  * It must also be defined in the language model (if the locale supports it)
  * This handler can be safely added but will be ingnored in locales that do not support it yet
  * */
-const FallbackIntentHandler = {
+const FallbackIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent';
+    return (
+      handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
+      handlerInput.requestEnvelope.request.intent.name === 'AMAZON.FallbackIntent'
     )
   },
-    handle(handlerInput) {
-        const speakOutput = handlerInput.t('FALLBACK_MSG');
+  handle(handlerInput) {
+    const speakOutput = languageStrings(handlerInput).FALLBACK_MSG
 
     return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .reprompt(speakOutput)
-            .getResponse();
-    },
+      .speak(speakOutput)
+      .reprompt(speakOutput)
+      .getResponse()
+  },
 }
 /* *
  * SessionEndedRequest notifies that a session was ended. This handler will be triggered when a currently open
  * session is closed for one of the following reasons: 1) The user says "exit" or "quit". 2) The user does not
  * respond or says something that does not match an intent defined in your voice model. 3) An error occurs
  * */
-const SessionEndedRequestHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'SessionEndedRequest';
-    },
-    handle(handlerInput) {
-        console.log(`~~~~ Session ended: ${JSON.stringify(handlerInput.requestEnvelope)}`);
-        // Any cleanup logic goes here.
-        return handlerInput.responseBuilder.getResponse(); // notice we send an empty response
+const SessionEndedRequestHandler: Alexa.RequestHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest'
+  },
+  handle(handlerInput) {
+    console.log(`~~~~ Session ended: ${JSON.stringify(handlerInput.requestEnvelope)}`)
+    // Any cleanup logic goes here.
+    return handlerInput.responseBuilder.getResponse() // notice we send an empty response
   },
 }
 /* *
@@ -111,18 +109,21 @@ const SessionEndedRequestHandler = {
  * It will simply repeat the intent the user said. You can create custom handlers for your intents
  * by defining them above, then also adding them to the request handler chain below
  * */
-const IntentReflectorHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest';
-    },
-    handle(handlerInput) {
-        const intentName = Alexa.getIntentName(handlerInput.requestEnvelope);
-        const speakOutput = handlerInput.t('REFLECTOR_MSG', { intentName });
+const IntentReflectorHandler: Alexa.RequestHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+  },
+  handle(handlerInput) {
+    const intentName =
+      handlerInput.requestEnvelope.request.type === 'IntentRequest' ? handlerInput.requestEnvelope.request.intent.name : ''
+    const speakOutput = languageStrings(handlerInput, intentName).REFLECTOR_MSG
 
-    return handlerInput.responseBuilder
+    return (
+      handlerInput.responseBuilder
         .speak(speakOutput)
-            // .reprompt('add a reprompt if you want to keep the session open for the user to respond')
+        // .reprompt('add a reprompt if you want to keep the session open for the user to respond')
         .getResponse()
+    )
   },
 }
 /**
@@ -130,31 +131,18 @@ const IntentReflectorHandler = {
  * stating the request handler chain is not found, you have not implemented a handler for
  * the intent being invoked or included it in the skill builder below
  * */
-const ErrorHandler = {
+const ErrorHandler: Alexa.ErrorHandler = {
   canHandle() {
-        return true;
-    },
-    handle(handlerInput, error) {
-        const speakOutput = handlerInput.t('ERROR_MSG');
-        console.log(`~~~~ Error handled: ${JSON.stringify(error)}`);
+    return true
+  },
+  handle(handlerInput, error) {
+    const speakOutput = languageStrings(handlerInput).ERROR_MSG
+    console.log(`~~~~ Error handled: ${JSON.stringify(error)}`)
 
     return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .reprompt(speakOutput)
+      .speak(speakOutput)
+      .reprompt(speakOutput)
       .getResponse()
-  },
-}
-
-// This request interceptor will bind a translation function 't' to the handlerInput
-const LocalisationRequestInterceptor = {
-  process(handlerInput) {
-    i18n
-      .init({
-            lng: Alexa.getLocale(handlerInput.requestEnvelope),
-        resources: languageStrings,
-    }).then((t) => {
-            handlerInput.t = (...args) => t(...args);
-        });
   },
 }
 /**
@@ -164,18 +152,14 @@ const LocalisationRequestInterceptor = {
  * */
 exports.handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
-        LaunchRequestHandler,
-      HelloWorldIntentHandler,
-      HelpIntentHandler,
-        CancelAndStopIntentHandler,
+    LaunchRequestHandler,
+    HelloWorldIntentHandler,
+    HelpIntentHandler,
+    CancelAndStopIntentHandler,
     FallbackIntentHandler,
-        SessionEndedRequestHandler,
+    SessionEndedRequestHandler,
     IntentReflectorHandler,
-  .addErrorHandlers(
-        ErrorHandler
-)
-    .addRequestInterceptors(
-        LocalisationRequestInterceptor
-)
-    .withCustomUserAgent('sample/hello-world/v1.2')
+  )
+  .addErrorHandlers(ErrorHandler)
+  .withCustomUserAgent('sample/hello-world/v1.2')
   .lambda()
