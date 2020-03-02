@@ -30,10 +30,7 @@ const PlayVideoIntentHandler: Alexa.RequestHandler = {
     const speakOutput = languageStrings(handlerInput).PLAY_MSG
     return handlerInput.responseBuilder
       .speak(speakOutput)
-      .addVideoAppLaunchDirective(
-        'https://mazwai.com/videvo_files/video/free/2017-10/small_watermarked/the_sea_also_rises_FKY_preview.mp4',
-        'title',
-      )
+      .addVideoAppLaunchDirective('https://example.mp4', 'title')
       .getResponse()
   },
 }
