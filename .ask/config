@@ -1,58 +1,16 @@
 {
   "deploy_settings": {
     "default": {
-      "skill_id": "amzn1.ask.skill.4e5cbf70-c3d8-4d4a-9185-9f0d40649ef6",
+      "skill_id": "amzn1.ask.skill.1faccdbb-4ef3-4e00-86a7-b5732ec75032",
       "was_cloned": false,
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "196139820b721ba740185fc8f65bf149"
+          "eTag": "99e3cd2a819fc6d7b6a3c3f815f7fbba"
         },
         "interactionModel": {
-          "de-DE": {
-            "eTag": "1f27993cf6f1401440fd4faef2eef7a3"
-          },
-          "en-AU": {
-            "eTag": "bfaefe491781751de93fc6f8f5363651"
-          },
-          "en-IN": {
-            "eTag": "e6244f293b120dbf2778acba907d05cc"
-          },
-          "en-CA": {
-            "eTag": "25659a674fc3ceb33c158df038b0a3e8"
-          },
-          "en-US": {
-            "eTag": "831c8c8efb7d7d95f784e210c14bb991"
-          },
-          "es-MX": {
-            "eTag": "e0ca629babc82a3c2ab2f01c93f4b339"
-          },
-          "en-GB": {
-            "eTag": "76dd6b99b87cc8210a1321fa9f1d7f58"
-          },
-          "es-US": {
-            "eTag": "a4fc2cae19d6b2878afeb4919594f44d"
-          },
-          "hi-IN": {
-            "eTag": "8087381475616628f728d79142281a5a"
-          },
-          "es-ES": {
-            "eTag": "bfbac4a2899443a4c1025f2aae4d2ae0"
-          },
-          "fr-FR": {
-            "eTag": "356507dc39eb25630f74a7e8ad175242"
-          },
           "ja-JP": {
-            "eTag": "2090d7b9ff0a556435709b95c4cae48b"
-          },
-          "fr-CA": {
-            "eTag": "4840f7a66fe012be2c95608afab643f8"
-          },
-          "pt-BR": {
-            "eTag": "90e69a34408112a2424457f6d4f8808e"
-          },
-          "it-IT": {
-            "eTag": "82238a2a2137fe010d2825c46687ae17"
+            "eTag": "7d9e5f6a1740199eb130a1d084faf6dc"
           }
         },
         "lambda": [
@@ -60,12 +18,12 @@
             "alexaUsage": [
               "custom/default"
             ],
-            "arn": "arn:aws:lambda:us-east-1:314405667869:function:ask-custom-alexa-hello-ts-default",
+            "arn": "arn:aws:lambda:us-east-1:314405667869:function:ask-custom-video-skill-test-default",
             "awsRegion": "us-east-1",
             "codeUri": "lambda/custom",
-            "functionName": "ask-custom-alexa-hello-ts-default",
+            "functionName": "ask-custom-video-skill-test-default",
             "handler": "index.handler",
-            "revisionId": "233e808f-ec56-4baa-be26-a4c8218f8bc3",
+            "revisionId": "b104d694-02bb-477d-871b-c645c89ca7fd",
             "runtime": "nodejs10.x"
           }
         ]

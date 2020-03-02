@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "ハローワールド",
+            "invocationName": "ビデオテスト",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
@@ -16,12 +16,11 @@
                     "samples": []
                 },
                 {
-                    "name": "HelloWorldIntent",
+                    "name": "PlayVideoIntent",
                     "slots": [],
                     "samples": [
-                        "hello",
-                        "ハロー",
-                        "こんにちは"
+                        "再生して",
+                        "再生"
                     ]
                 },
                 {

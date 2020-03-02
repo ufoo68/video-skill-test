@@ -1,1 +1,1 @@
-# Template for alexa using TypeScript
+# ビデオを用いたAlexaスキルの練習

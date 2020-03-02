@@ -19,21 +19,22 @@ const LaunchRequestHandler: Alexa.RequestHandler = {
   },
 }
 
-const HelloWorldIntentHandler: Alexa.RequestHandler = {
+const PlayVideoIntentHandler: Alexa.RequestHandler = {
   canHandle(handlerInput) {
     return (
       handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
-      handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent'
+      handlerInput.requestEnvelope.request.intent.name === 'PlayVideoIntent'
     )
   },
   handle(handlerInput) {
-    const speakOutput = languageStrings(handlerInput).HELLO_MSG
-    return (
-      handlerInput.responseBuilder
-        .speak(speakOutput)
-        // .reprompt('add a reprompt if you want to keep the session open for the user to respond')
-        .getResponse()
-    )
+    const speakOutput = languageStrings(handlerInput).PLAY_MSG
+    return handlerInput.responseBuilder
+      .speak(speakOutput)
+      .addVideoAppLaunchDirective(
+        'https://mazwai.com/videvo_files/video/free/2017-10/small_watermarked/the_sea_also_rises_FKY_preview.mp4',
+        'title',
+      )
+      .getResponse()
   },
 }
 
@@ -153,7 +154,7 @@ const ErrorHandler: Alexa.ErrorHandler = {
 exports.handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
     LaunchRequestHandler,
-    HelloWorldIntentHandler,
+    PlayVideoIntentHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
     FallbackIntentHandler,
